@@ -47,7 +47,7 @@ public class DisasterEventVolcano : MonoBehaviour
         {            
             // Trigger destroy animation?
             _audioManager.playVoiceOverSuccess(_disasterEventID);
-            
+            _gameManager.UpdateScore();
             Destroy(GetComponent<Collider>());
             Destroy(this.gameObject);
         }

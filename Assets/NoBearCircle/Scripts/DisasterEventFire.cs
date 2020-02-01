@@ -16,6 +16,7 @@ public class DisasterEventFire : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     { 
+        _disasterEventID = Random.Range(0,2);
         _gameManager = GameObject.Find("Game_Manager").GetComponent<GameManager>();
         if (_gameManager == null) Debug.LogError("The Game Manager attached to the Disaster Event is NULL");
         _audioManager = GameObject.Find("Audio_Manager").GetComponent<AudioManager>();
@@ -24,7 +25,7 @@ public class DisasterEventFire : MonoBehaviour
         if (_audioManager == null) Debug.LogError("The Audio Source attached to the Disaster Event is NULL");
         _audioSource.clip = _disasterSfx;
         _audioSource.Play();
-        _audioManager.playVoiceOverTaunt(_disasterEventID);
+        //_audioManager.playVoiceOverTaunt(_disasterEventID);
         StartCoroutine(Countdown());
     }
 
@@ -47,7 +48,7 @@ public class DisasterEventFire : MonoBehaviour
         {            
             // Trigger destroy animation?
             _audioManager.playVoiceOverSuccess(_disasterEventID);
-            
+            _gameManager.UpdateScore();
             Destroy(GetComponent<Collider>());
             Destroy(this.gameObject);
         }

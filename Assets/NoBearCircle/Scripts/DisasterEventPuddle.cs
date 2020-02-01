@@ -16,6 +16,7 @@ public class DisasterEventPuddle : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     { 
+        _disasterEventID = Random.Range(2,4);
         _gameManager = GameObject.Find("Game_Manager").GetComponent<GameManager>();
         if (_gameManager == null) Debug.LogError("The Game Manager attached to the Disaster Event is NULL");
         _audioManager = GameObject.Find("Audio_Manager").GetComponent<AudioManager>();
