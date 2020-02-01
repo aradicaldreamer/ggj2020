@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DisasterEventFire : MonoBehaviour
+public class DisasterEventVolcano : MonoBehaviour
 {
-    // Object Variables
+// Object Variables
     [SerializeField] private int _disasterEventID; // 1 fire, 2 flood, 3 volcano
 
     // Connected GameObjects
@@ -34,7 +34,7 @@ public class DisasterEventFire : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Water"))
+        if (other.CompareTag("Cork"))
         {            
             // Trigger destroy animation?
             _audioManager.playVoiceOverSuccess(_disasterEventID);

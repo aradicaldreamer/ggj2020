@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
+    [Header("Audio Sources")]
     [SerializeField] private AudioSource _backgroundMusic;
     [SerializeField] private AudioSource _voiceOver;
+    
+    [Header("Background Music")]
     [SerializeField] private AudioClip[] _bgmLevels;
 
+    [Header("Voice Over")]
     [SerializeField] private AudioClip _openingVO;
     [SerializeField] private AudioClip[] _voiceOverTaunts;
     [SerializeField] private AudioClip[] _voiceOverSucceeds;
@@ -29,7 +33,11 @@ public class AudioManager : MonoBehaviour
 
     public void playVoiceOverTaunt(int tauntID)
     {
-        _voiceOver.PlayOneShot(_voiceOverTaunts[tauntID]);
+        if (!_voiceOver.isPlaying)
+        {
+            _voiceOver.clip = _voiceOverTaunts[tauntID];
+            _voiceOver.Play();
+        }
     }
 
     public void playOpeningVoiceOver()
@@ -39,7 +47,11 @@ public class AudioManager : MonoBehaviour
 
     public void playVoiceOverSuccess(int tauntID)
     {
-        _voiceOver.PlayOneShot(_voiceOverSucceeds[tauntID]);
+        if (!_voiceOver.isPlaying)
+        {
+            _voiceOver.clip = _voiceOverSucceeds[tauntID];
+            _voiceOver.Play();
+        }
     }
 
     public void StartVO()
