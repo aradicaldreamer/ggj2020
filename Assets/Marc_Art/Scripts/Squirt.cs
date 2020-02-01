@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Squirt : MonoBehaviour
+public class Squirt : OVRGrabbable
 {
     public ParticleSystem sprayParticles;
     public Animator sprayAnimator;
@@ -11,6 +9,16 @@ public class Squirt : MonoBehaviour
     public float bulletSpeed = 20;
     public Rigidbody bullet;
     public int lifetime = 1;
+
+    override public void GrabBegin(OVRGrabber hand, Collider grabPoint)
+    {
+        base.GrabBegin(hand, grabPoint);
+    }
+
+    override public void GrabEnd(Vector3 linearVelocity, Vector3 angularVelocity)
+    {
+        base.GrabEnd(linearVelocity, angularVelocity);
+    }
 
     void Fire()
     {
@@ -21,16 +29,27 @@ public class Squirt : MonoBehaviour
 
     void Update()
     {
-        // Switch the input to the Oculus input. E is a test input
-        if (Input.GetKeyDown("e"))
+        if (isGrabbed)
         {
-            sprayAnimator.SetBool("Trigger", true);
-            sprayParticles.Play();
-            Fire();
-            // play sound
+            var controller = grabbedBy.name == "LeftHandAnchor" ? OVRInput.Controller.LTouch : OVRInput.Controller.RTouch;
+            var trigger = OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger, controller);
+            if (trigger > 0.5f)
+            {
+                sprayAnimator.SetBool("Trigger", true);
+                if (!sprayParticles.isPlaying) sprayParticles.Play();
+                Fire();
+                // play sound
+            }
+            else
+            {
+                sprayAnimator.SetBool("Trigger", false);
+                if (sprayParticles.isPlaying) sprayParticles.Stop();
+            }
         }
-        else if (Input.GetKeyUp("e")){
+        else
+        {
             sprayAnimator.SetBool("Trigger", false);
+            if (sprayParticles.isPlaying) sprayParticles.Stop();
         }
     }
 }
