@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 
     // Connected GameObjects
     private AudioManager _audioManager;
+    private DisasterSpawnManager _disasterSpawnManager;
     
     
     // Start is called before the first frame update
@@ -15,9 +16,11 @@ public class GameManager : MonoBehaviour
     {
         _audioManager = GameObject.Find("Audio_Manager").GetComponent<AudioManager>();
         if (_audioManager == null) Debug.LogError("The Audio Manager attached to the Game Manager is NULL");
-        
-        _audioManager.playOpeningVoiceOver();
-        _audioManager.StartVO();
+        _disasterSpawnManager = GameObject.Find("Disaster_Spawn_Manager").GetComponent<DisasterSpawnManager>();
+        if (_disasterSpawnManager == null) Debug.LogError("The Disaster Spawn Manager attached to the Game Manager is NULL");
+
+        _disasterSpawnManager.StartSpawning();
+        //_audioManager.playOpeningVoiceOver();
     }
 
     // Update is called once per frame

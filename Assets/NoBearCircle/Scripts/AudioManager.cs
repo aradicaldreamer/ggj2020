@@ -12,7 +12,6 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip[] _voiceOverTaunts;
     [SerializeField] private AudioClip[] _voiceOverSucceeds;
 
-    private int _lastTauntPlayed = -1;
     private bool _stopSpawning = true;
     private bool _isTaunt = true;
     
@@ -31,7 +30,6 @@ public class AudioManager : MonoBehaviour
     public void playVoiceOverTaunt(int tauntID)
     {
         _voiceOver.PlayOneShot(_voiceOverTaunts[tauntID]);
-        _lastTauntPlayed = tauntID;
     }
 
     public void playOpeningVoiceOver()
@@ -39,41 +37,35 @@ public class AudioManager : MonoBehaviour
         _voiceOver.PlayOneShot(_openingVO);
     }
 
-    public void playVoiceOverSuccess()
+    public void playVoiceOverSuccess(int tauntID)
     {
-        if (_lastTauntPlayed == -1 )
-        {
-            Debug.LogError("Voice Over success was asked to play before a taunt");
-            return;
-        }
-        _voiceOver.PlayOneShot(_voiceOverSucceeds[_lastTauntPlayed]);
-        _lastTauntPlayed = -1;
+        _voiceOver.PlayOneShot(_voiceOverSucceeds[tauntID]);
     }
 
     public void StartVO()
     {
-        _stopSpawning = false;
-        StartCoroutine(VoiceOverTest());
+        // _stopSpawning = false;
+        // StartCoroutine(VoiceOverTest());
     }
-    public IEnumerator VoiceOverTest()
-    {
-        yield return new WaitForSeconds(15f);
-        while (!_stopSpawning)
-        {
-            int randomTrack = Random.Range(0,6);
-            if (_isTaunt)
-            {
-                playVoiceOverTaunt(randomTrack);
-                _isTaunt = false;
-            }
-            else
-            {
-                playVoiceOverSuccess();
-                _isTaunt = true;
-            }
-            yield return new WaitForSeconds(4f);
-        }
-    }
+    // public IEnumerator VoiceOverTest()
+    // {
+    //     yield return new WaitForSeconds(15f);
+    //     while (!_stopSpawning)
+    //     {
+    //         int randomTrack = Random.Range(0,6);
+    //         if (_isTaunt)
+    //         {
+    //             playVoiceOverTaunt(randomTrack);
+    //             _isTaunt = false;
+    //         }
+    //         else
+    //         {
+    //             playVoiceOverSuccess();
+    //             _isTaunt = true;
+    //         }
+    //         yield return new WaitForSeconds(4f);
+    //     }
+    // }
 
     public void changeAudioLevel(int dangerLevel)
     {
