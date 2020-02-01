@@ -8,6 +8,7 @@ public class DisasterEventVolcano : MonoBehaviour
     [SerializeField] private int _disasterEventID; // 1 fire, 2 flood, 3 volcano
 
     // Connected GameObjects
+    private GameManager _gameManager;
     private AudioManager _audioManager;
     private AudioSource _audioSource;
     [SerializeField] private AudioClip _disasterSfx;
@@ -15,15 +16,23 @@ public class DisasterEventVolcano : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     { 
-
+        _gameManager = GameObject.Find("Game_Manager").GetComponent<GameManager>();
+        if (_gameManager == null) Debug.LogError("The Game Manager attached to the Disaster Event is NULL");
         _audioManager = GameObject.Find("Audio_Manager").GetComponent<AudioManager>();
         if (_audioManager == null) Debug.LogError("The Audio Manager attached to the Disaster Event is NULL");
         _audioSource = GetComponent<AudioSource>();
         if (_audioManager == null) Debug.LogError("The Audio Source attached to the Disaster Event is NULL");
         _audioSource.clip = _disasterSfx;
-        //_audioSource.Play();
-        //_audioManager.playVoiceOverTaunt(disasterEventID);
+        _audioSource.Play();
+        //_audioManager.playVoiceOverTaunt(_disasterEventID);
+        StartCoroutine(Countdown());
+    }
 
+    IEnumerator Countdown()
+    {
+        yield return new WaitForSeconds(5f);
+        _gameManager.Damage();
+        Destroy(this.gameObject);
     }
 
     // Update is called once per frame

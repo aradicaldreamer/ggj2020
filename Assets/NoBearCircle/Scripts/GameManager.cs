@@ -1,13 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     // Game Variables
     private int _score;
-    private int _scoreToWin;
+    [SerializeField] private int _scoreToWin = 20;
     private int _dangerLevel;
+    [SerializeField] private int _playerHealth = 5;
 
     // Connected GameObjects
     private AudioManager _audioManager;
@@ -32,6 +34,37 @@ public class GameManager : MonoBehaviour
         DebugControls();
     }
 
+    public void UpdateScore()
+    {
+        _score += 1;
+        if (_score == _scoreToWin)
+        {
+            StartCoroutine(WinRoutine());
+        }
+    }
+
+    public void Damage()
+    {
+        _playerHealth --;
+        if (_playerHealth == 0)
+        {
+            StartCoroutine(GameOverRoutine());
+        }
+    }
+
+    IEnumerator GameOverRoutine()
+    {
+        _audioManager.GameOverAudio();
+        yield return new WaitForSecondsRealtime(5f);
+        SceneManager.LoadScene("Matt");
+    }
+
+    IEnumerator WinRoutine()
+    {
+        _audioManager.GameWinAudio();
+        yield return new WaitForSecondsRealtime(5f);
+
+    }
 
     void DebugControls()
     {

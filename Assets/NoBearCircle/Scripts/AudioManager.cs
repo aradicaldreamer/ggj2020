@@ -10,6 +10,8 @@ public class AudioManager : MonoBehaviour
     
     [Header("Background Music")]
     [SerializeField] private AudioClip[] _bgmLevels;
+    [SerializeField] private AudioClip[] _win;
+    [SerializeField] private AudioClip[] _lose;
 
     [Header("Voice Over")]
     [SerializeField] private AudioClip _openingVO;
@@ -52,6 +54,20 @@ public class AudioManager : MonoBehaviour
             _voiceOver.clip = _voiceOverSucceeds[tauntID];
             _voiceOver.Play();
         }
+    }
+
+    public void GameOverAudio()
+    {
+        _backgroundMusic.Stop();
+        _backgroundMusic.clip = _lose[Random.Range(0,1)];
+        _backgroundMusic.Play();
+    }
+
+    public void GameWinAudio()
+    {
+        _backgroundMusic.Stop();
+        _backgroundMusic.clip = _win[Random.Range(0,1)];
+        _backgroundMusic.Play();
     }
 
     public void StartVO()
