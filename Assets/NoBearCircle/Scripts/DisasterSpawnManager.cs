@@ -13,17 +13,17 @@ public class DisasterSpawnManager : MonoBehaviour
 
     [SerializeField] private GameObject[] _disasterPrefabs;
     [SerializeField] private GameObject _earth;
-    
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void IncreaseSpawnRate()
@@ -41,11 +41,15 @@ public class DisasterSpawnManager : MonoBehaviour
         yield return new WaitForSeconds(5.0f); // Should be 16 seconds when ready to wait for VO
         while (!_stopSpawning)
         {
-            Vector3 offset = Random.onUnitSphere * .32f;
+            Vector3 offset = Random.onUnitSphere * _earth.GetComponent<SphereCollider>().radius;
             Vector3 spawnLocation = _earth.transform.position + offset;
-            Vector3 direction = _earth.transform.position - spawnLocation;
-            GameObject newDisaster = Instantiate(_disasterPrefabs[Random.Range(0,_disasterPrefabs.Length)], spawnLocation, Quaternion.identity);
-            newDisaster.transform.parent = _earth.transform;
+
+            Vector3 up = spawnLocation - _earth.transform.position;
+            Vector3 forward = Vector3.Cross(up, Vector3.right);
+            Quaternion rotation = Quaternion.LookRotation(forward, up);
+
+            GameObject newDisaster = Instantiate(_disasterPrefabs[Random.Range(0,_disasterPrefabs.Length)], spawnLocation, rotation, _earth.transform);
+
             yield return new WaitForSeconds(_spawnRate);
         }
     }
