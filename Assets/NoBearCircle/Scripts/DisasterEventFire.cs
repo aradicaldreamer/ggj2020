@@ -15,17 +15,19 @@ public class DisasterEventFire : MonoBehaviour
     
     // Start is called before the first frame update
     void Start()
-    {
+    { 
+        
         // set which type of disaster
         disasterEventID = 0;
+        transform.localPosition = Random.insideUnitSphere;
 
         _audioManager = GameObject.Find("Audio_Manager").GetComponent<AudioManager>();
         if (_audioManager == null) Debug.LogError("The Audio Manager attached to the Disaster Event is NULL");
         _audioSource = GetComponent<AudioSource>();
         if (_audioManager == null) Debug.LogError("The Audio Source attached to the Disaster Event is NULL");
         _audioSource.clip = _disasterSfx;
-        _audioSource.Play();
-        _audioManager.playVoiceOverTaunt(disasterEventID);
+        //_audioSource.Play();
+        //_audioManager.playVoiceOverTaunt(disasterEventID);
 
     }
 
@@ -35,16 +37,16 @@ public class DisasterEventFire : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.tag == "Water")
-        {
+    // private void OnTriggerEnter(Collider other)
+    // {
+    //     if (other.CompareTag("Water"))
+    //     {
              
-            //_animator.SetTrigger("OnEnemyDeath");
-            _audioManager.playVoiceOverSuccess(disasterEventID);
+    //         //_animator.SetTrigger("OnEnemyDeath");
+    //         _audioManager.playVoiceOverSuccess(disasterEventID);
             
-            Destroy(GetComponent<Collider>());
-            Destroy(this.gameObject, 2.8f);
-        }
-    }
+    //         Destroy(GetComponent<Collider>());
+    //         Destroy(this.gameObject, 2.8f);
+    //     }
+    // }
 }
