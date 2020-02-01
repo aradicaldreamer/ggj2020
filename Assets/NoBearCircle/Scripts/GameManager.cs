@@ -24,7 +24,9 @@ public class GameManager : MonoBehaviour
         _disasterSpawnManager = GameObject.Find("Disaster_Spawn_Manager").GetComponent<DisasterSpawnManager>();
         if (_disasterSpawnManager == null) Debug.LogError("The Disaster Spawn Manager attached to the Game Manager is NULL");
 
+        _dangerLevel = 1;
         _disasterSpawnManager.StartSpawning();
+        _audioManager.changeAudioLevel(_dangerLevel);
         //_audioManager.playOpeningVoiceOver();
     }
 
@@ -32,6 +34,12 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         DebugControls();
+    }
+
+    public void UpdateDangerLevel(int dangerLevel)
+    {
+        _dangerLevel = dangerLevel;
+        _audioManager.changeAudioLevel(_dangerLevel);
     }
 
     public void UpdateScore()
@@ -46,6 +54,10 @@ public class GameManager : MonoBehaviour
     public void Damage()
     {
         _playerHealth --;
+        if (_playerHealth == 2)
+        {
+            UpdateDangerLevel(3);
+        }
         if (_playerHealth == 0)
         {
             StartCoroutine(GameOverRoutine());

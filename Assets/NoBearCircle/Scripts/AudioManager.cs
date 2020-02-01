@@ -24,7 +24,6 @@ public class AudioManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        changeAudioLevel(1);
     }
 
     // Update is called once per frame
@@ -69,31 +68,6 @@ public class AudioManager : MonoBehaviour
         _backgroundMusic.clip = _win[Random.Range(0,1)];
         _backgroundMusic.Play();
     }
-
-    public void StartVO()
-    {
-        // _stopSpawning = false;
-        // StartCoroutine(VoiceOverTest());
-    }
-    // public IEnumerator VoiceOverTest()
-    // {
-    //     yield return new WaitForSeconds(15f);
-    //     while (!_stopSpawning)
-    //     {
-    //         int randomTrack = Random.Range(0,6);
-    //         if (_isTaunt)
-    //         {
-    //             playVoiceOverTaunt(randomTrack);
-    //             _isTaunt = false;
-    //         }
-    //         else
-    //         {
-    //             playVoiceOverSuccess();
-    //             _isTaunt = true;
-    //         }
-    //         yield return new WaitForSeconds(4f);
-    //     }
-    // }
 
     public void changeAudioLevel(int dangerLevel)
     {

@@ -13,11 +13,13 @@ public class DisasterSpawnManager : MonoBehaviour
 
     [SerializeField] private GameObject[] _disasterPrefabs;
     [SerializeField] private GameObject _earth;
+    private GameManager _gameManager;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        _gameManager = GameObject.Find("Game_Manager").GetComponent<GameManager>();
+        if (_gameManager == null) Debug.LogError("The Game Manager attached to the Disaster Spawn Manager is NULL");
     }
 
     // Update is called once per frame
@@ -38,7 +40,8 @@ public class DisasterSpawnManager : MonoBehaviour
 
     IEnumerator SpawnDisasterRoutine()
     {
-        yield return new WaitForSeconds(5.0f); // Should be 16 seconds when ready to wait for VO
+        yield return new WaitForSeconds(20.0f); // Should be 20 seconds when ready to wait for VO
+        _gameManager.UpdateDangerLevel(2);
         while (!_stopSpawning)
         {
             Vector3 offset = Random.onUnitSphere * _earth.GetComponent<SphereCollider>().radius;
