@@ -5,6 +5,9 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     // Game Variables
+    private int _score;
+    private int _scoreToWin;
+    private int _dangerLevel;
 
     // Connected GameObjects
     private AudioManager _audioManager;
