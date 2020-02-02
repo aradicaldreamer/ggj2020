@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class Barrier : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    void OnTriggerExit(Collider other)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Tool tool = other.GetComponent<Tool>();
+        if (tool != null)
+        {
+            tool.RespawnTool();
+        }
     }
 }
