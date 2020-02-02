@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4187286372324902068}
   - component: {fileID: 4432623671683489434}
   - component: {fileID: 450352091294024213}
+  - component: {fileID: 5734463216553909717}
   m_Layer: 0
   m_Name: Cork
   m_TagString: Cork
@@ -129,3 +130,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &5734463216553909717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5300978639399020551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aad73c4b6abc64db58b8f09e5f9d1798, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnLocation: {x: 0, y: 0, z: 0}
+  respawnRotation: {x: 0, y: 0, z: 0, w: 0}

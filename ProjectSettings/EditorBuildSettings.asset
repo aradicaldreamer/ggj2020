@@ -5,16 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Oculus/VR/Scenes/Room.unity
-    guid: 54445976c1dbf1c49bb38ba7eba558e8
-  - enabled: 0
+  - enabled: 1
     path: Assets/NoBearCircle/Scenes/Main.unity
     guid: 522e86e07fbd4fe48aedd7440db2fbe6
-  - enabled: 0
-    path: Assets/NoBearCircle/Scenes/GameManagerTest.unity
-    guid: d23bacaa34bab4068a4771abf0a73e0e
-  - enabled: 1
-    path: Assets/NoBearCircle/Scenes/Matt.unity
-    guid: b0782c68f36d9447e8838cdd143b4241
   m_configObjects: {}

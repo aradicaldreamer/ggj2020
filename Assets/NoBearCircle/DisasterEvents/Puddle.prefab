@@ -4784,7 +4784,7 @@ Transform:
   m_GameObject: {fileID: 5598700632430253892}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.00064872, y: -0.0059647, z: 0.0744}
-  m_LocalScale: {x: 0.060029, y: 0.022159105, z: 0.060029}
+  m_LocalScale: {x: 0.15354677, y: 0.056680255, z: 0.15354677}
   m_Children:
   - {fileID: 34858091686672244}
   m_Father: {fileID: 0}
@@ -4845,7 +4845,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5598700632430253892}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -4863,7 +4863,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _disasterEventID: 0
-  _disasterSfx: {fileID: 0}
+  _disasterSfx: {fileID: 8300000, guid: 81cd8ea09eecc493987e0ecb2420d38f, type: 3}
+  _disasterFixedSfx: {fileID: 8300000, guid: ab49bb686af5c438098327332ca7c7a7, type: 3}
 --- !u!82 &1497695942984432267
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4876,7 +4877,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0

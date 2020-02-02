@@ -5,6 +5,7 @@ public class Squirt : OVRGrabbable
     public ParticleSystem sprayParticles;
     public Animator sprayAnimator;
     public Material liquidShader;
+    public AudioSource audioSource;
 
     public float bulletSpeed = 20;
     public Rigidbody bullet;
@@ -39,7 +40,7 @@ public class Squirt : OVRGrabbable
                 sprayAnimator.SetBool("Trigger", true);
                 if (!sprayParticles.isPlaying) sprayParticles.Play();
                 Fire();
-                // play sound
+                if (!audioSource.isPlaying) audioSource.Play();
             }
             else
             {

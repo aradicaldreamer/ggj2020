@@ -14,8 +14,8 @@ public class GameManager : MonoBehaviour
     // Connected GameObjects
     private AudioManager _audioManager;
     private DisasterSpawnManager _disasterSpawnManager;
-    
-    
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -68,7 +68,7 @@ public class GameManager : MonoBehaviour
     {
         _audioManager.GameOverAudio();
         yield return new WaitForSecondsRealtime(5f);
-        SceneManager.LoadScene("Matt");
+        SceneManager.LoadScene("Main");
     }
 
     IEnumerator WinRoutine()
@@ -92,6 +92,6 @@ public class GameManager : MonoBehaviour
         {
             _audioManager.changeAudioLevel(3);
         }
-        
+
     }
 }

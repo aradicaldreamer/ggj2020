@@ -8,7 +8,7 @@ using Vector3 = UnityEngine.Vector3;
 public class DisasterSpawnManager : MonoBehaviour
 {
     private bool _stopSpawning = true;
-    private float _spawnRate = 5.0f;
+    [SerializeField] private float _spawnRate = 5.0f;
     [SerializeField] private float _spawnRateIncrement = 0.2f;
 
     [SerializeField] private GameObject[] _disasterPrefabs;

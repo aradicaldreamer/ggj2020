@@ -5,17 +5,16 @@ using UnityEngine;
 public class BigRedButton : MonoBehaviour
 {
     private Tool[] _tools;
-    
+
     // Start is called before the first frame update
     void Start()
     {
         _tools = GameObject.FindObjectsOfType<Tool>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        ResetTools();
     }
 
     public void ResetTools()

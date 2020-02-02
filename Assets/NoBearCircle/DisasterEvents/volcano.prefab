@@ -4882,7 +4882,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _disasterEventID: 3
-  _disasterSfx: {fileID: 0}
+  _disasterSfx: {fileID: 8300000, guid: 87b4d84f51fb54f4b8944c805809e37d, type: 3}
+  _disasterFixedSfx: {fileID: 8300000, guid: f9e1861eae88d4af680c6ff8bade7ee8, type: 3}
 --- !u!82 &4451610716526454134
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4895,7 +4896,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0

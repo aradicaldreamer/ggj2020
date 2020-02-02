@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Barrier : MonoBehaviour
 {
-    void OnTriggerExit(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         Tool tool = other.GetComponent<Tool>();
         if (tool != null)
