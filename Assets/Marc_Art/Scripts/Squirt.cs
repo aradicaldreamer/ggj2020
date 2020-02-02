@@ -9,6 +9,7 @@ public class Squirt : OVRGrabbable
     public float bulletSpeed = 20;
     public Rigidbody bullet;
     public int lifetime = 1;
+    public Transform bulletSpawnPoint;
 
     override public void GrabBegin(OVRGrabber hand, Collider grabPoint)
     {
@@ -22,8 +23,8 @@ public class Squirt : OVRGrabbable
 
     void Fire()
     {
-        Rigidbody bulletClone = (Rigidbody)Instantiate(bullet, transform.position, transform.rotation);
-        bulletClone.velocity = transform.forward * bulletSpeed;
+        Rigidbody bulletClone = (Rigidbody)Instantiate(bullet, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+        bulletClone.velocity = bulletSpawnPoint.forward * bulletSpeed;
         Destroy(bulletClone.gameObject, lifetime);
     }
 

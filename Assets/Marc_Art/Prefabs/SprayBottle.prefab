@@ -180,6 +180,7 @@ MonoBehaviour:
   bulletSpeed: 5
   bullet: {fileID: 4674000967939981512, guid: 6fa9a503a2793a443a5973c30a3ab224, type: 3}
   lifetime: 1
+  bulletSpawnPoint: {fileID: 5023891889582839479}
 --- !u!65 &1631300019
 BoxCollider:
   m_ObjectHideFlags: 0
