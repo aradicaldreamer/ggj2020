@@ -25,6 +25,7 @@ public class DisasterEventVolcano : MonoBehaviour
         _audioSource = GetComponent<AudioSource>();
         if (_audioManager == null) Debug.LogError("The Audio Source attached to the Disaster Event is NULL");
         _audioSource.clip = _disasterSfx;
+        _audioSource.loop = true;
         _audioSource.Play();
         //_audioManager.playVoiceOverTaunt(_disasterEventID);
         StartCoroutine(Countdown());

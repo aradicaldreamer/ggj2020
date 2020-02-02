@@ -12,6 +12,7 @@ public class DisasterEventPuddle : MonoBehaviour
     private AudioManager _audioManager;
     private AudioSource _audioSource;
     [SerializeField] private AudioClip _disasterSfx;
+    [SerializeField] private AudioClip _disasterSfx2;
     [SerializeField] private AudioClip _disasterFixedSfx;
     
     // Start is called before the first frame update
@@ -24,7 +25,9 @@ public class DisasterEventPuddle : MonoBehaviour
         if (_audioManager == null) Debug.LogError("The Audio Manager attached to the Disaster Event is NULL");
         _audioSource = GetComponent<AudioSource>();
         if (_audioManager == null) Debug.LogError("The Audio Source attached to the Disaster Event is NULL");
+        _audioSource.PlayOneShot(_disasterSfx2);
         _audioSource.clip = _disasterSfx;
+        _audioSource.loop = true;
         _audioSource.Play();
         _audioManager.playVoiceOverTaunt(_disasterEventID);
         StartCoroutine(Countdown());
@@ -52,7 +55,7 @@ public class DisasterEventPuddle : MonoBehaviour
             _audioManager.playVoiceOverSuccess(_disasterEventID);
             _gameManager.UpdateScore();
             Destroy(GetComponent<Collider>());
-            Destroy(this.gameObject, .5f);
+            Destroy(this.gameObject);
         }
     }
 }

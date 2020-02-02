@@ -25,6 +25,7 @@ public class DisasterEventFire : MonoBehaviour
         _audioSource = GetComponent<AudioSource>();
         if (_audioManager == null) Debug.LogError("The Audio Source attached to the Disaster Event is NULL");
         _audioSource.clip = _disasterSfx;
+        _audioSource.loop = true;
         _audioSource.Play();
         _audioManager.playVoiceOverTaunt(_disasterEventID);
         StartCoroutine(Countdown());
@@ -48,11 +49,11 @@ public class DisasterEventFire : MonoBehaviour
         if (other.CompareTag("Water"))
         {            
             // Trigger destroy animation?
-            _audioSource.PlayOneShot(_disasterFixedSfx);
+            //_audioSource.PlayOneShot(_disasterFixedSfx);
             _audioManager.playVoiceOverSuccess(_disasterEventID);
             _gameManager.UpdateScore();
             Destroy(GetComponent<Collider>());
-            Destroy(this.gameObject, .5f);
+            Destroy(this.gameObject);
         }
     }
 }
