@@ -12,11 +12,12 @@ public class DisasterEventPuddle : MonoBehaviour
     private AudioManager _audioManager;
     private AudioSource _audioSource;
     [SerializeField] private AudioClip _disasterSfx;
+    [SerializeField] private AudioClip _disasterFixedSfx;
     
     // Start is called before the first frame update
     void Start()
     { 
-        _disasterEventID = Random.Range(2,4);
+        _disasterEventID = Random.Range(3,6);
         _gameManager = GameObject.Find("Game_Manager").GetComponent<GameManager>();
         if (_gameManager == null) Debug.LogError("The Game Manager attached to the Disaster Event is NULL");
         _audioManager = GameObject.Find("Audio_Manager").GetComponent<AudioManager>();
@@ -25,7 +26,7 @@ public class DisasterEventPuddle : MonoBehaviour
         if (_audioManager == null) Debug.LogError("The Audio Source attached to the Disaster Event is NULL");
         _audioSource.clip = _disasterSfx;
         _audioSource.Play();
-        //_audioManager.playVoiceOverTaunt(_disasterEventID);
+        _audioManager.playVoiceOverTaunt(_disasterEventID);
         StartCoroutine(Countdown());
     }
 
@@ -47,10 +48,11 @@ public class DisasterEventPuddle : MonoBehaviour
         if (other.CompareTag("Towel"))
         {            
             // Trigger destroy animation?
+            _audioSource.PlayOneShot(_disasterFixedSfx);
             _audioManager.playVoiceOverSuccess(_disasterEventID);
             _gameManager.UpdateScore();
             Destroy(GetComponent<Collider>());
-            Destroy(this.gameObject);
+            Destroy(this.gameObject, .5f);
         }
     }
 }
