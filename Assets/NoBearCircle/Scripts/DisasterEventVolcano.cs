@@ -16,6 +16,7 @@ public class DisasterEventVolcano : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     { 
+        _disasterEventID = Random.Range(4,6); 
         _gameManager = GameObject.Find("Game_Manager").GetComponent<GameManager>();
         if (_gameManager == null) Debug.LogError("The Game Manager attached to the Disaster Event is NULL");
         _audioManager = GameObject.Find("Audio_Manager").GetComponent<AudioManager>();
@@ -30,7 +31,7 @@ public class DisasterEventVolcano : MonoBehaviour
 
     IEnumerator Countdown()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(15f);
         _gameManager.Damage();
         Destroy(this.gameObject);
     }

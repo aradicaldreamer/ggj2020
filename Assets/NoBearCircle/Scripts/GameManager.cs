@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
         _dangerLevel = 1;
         _disasterSpawnManager.StartSpawning();
         _audioManager.changeAudioLevel(_dangerLevel);
-        //_audioManager.playOpeningVoiceOver();
+        _audioManager.playOpeningVoiceOver();
     }
 
     // Update is called once per frame

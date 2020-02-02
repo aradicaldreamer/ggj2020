@@ -37,7 +37,7 @@ public class DisasterEventPuddle : MonoBehaviour
 
     IEnumerator Countdown()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(15f);
         _gameManager.Damage();
         Destroy(this.gameObject);
     }
@@ -48,7 +48,7 @@ public class DisasterEventPuddle : MonoBehaviour
         {            
             // Trigger destroy animation?
             _audioManager.playVoiceOverSuccess(_disasterEventID);
-            
+            _gameManager.UpdateScore();
             Destroy(GetComponent<Collider>());
             Destroy(this.gameObject);
         }

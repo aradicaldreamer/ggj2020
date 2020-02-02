@@ -37,7 +37,7 @@ public class DisasterEventFire : MonoBehaviour
 
     IEnumerator Countdown()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(15f);
         _gameManager.Damage();
         Destroy(this.gameObject);
     }
