@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/NoBearCircle/Scenes/Main.unity
     guid: 522e86e07fbd4fe48aedd7440db2fbe6
+  - enabled: 0
+    path: Assets/NoBearCircle/Scenes/Empty.unity
+    guid: 734f6dc8bb5b1bd4cb7ee8f3d0c6fe77
   m_configObjects: {}
