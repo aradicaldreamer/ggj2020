@@ -9,6 +9,21 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Platform2
     second: {fileID: 2100000, guid: a237f45bf41c1134b9b3423841a3b538, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: button
+    second: {fileID: 2100000, guid: 1b25f4680aa0ace449d8a227f7147b32, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert1
+    second: {fileID: 2100000, guid: 1f6f4a236e0a33342aef0b2405ab90b5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: typeBlinn
+    second: {fileID: 2100000, guid: 10f8d943b01bbab4ea1c1b376a6201a4, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
