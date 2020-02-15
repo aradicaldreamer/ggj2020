@@ -22,7 +22,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: GlowingMaterial1
   m_Shader: {fileID: 4800000, guid: 8d2bb70cbf9db8d4da26e15b26e74248, type: 3}
-  m_ShaderKeywords: _EMISSION _GLOSSINESS_FROM_BASE_ALPHA _SPECULAR_COLOR
+  m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -126,7 +126,7 @@ Material:
     - _SmoothnessSource: 1
     - _SmoothnessTextureChannel: 0
     - _SpecSource: 0
-    - _SpecularHighlights: 0
+    - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
     - _UVSec: 0
@@ -134,8 +134,8 @@ Material:
     - _ZWrite: 1
     - __dirty: 0
     m_Colors:
-    - _BaseColor: {r: 0.23529404, g: 1.709804, b: 2, a: 0.078125}
+    - _BaseColor: {r: 0.0901958, g: 0.6431373, b: 0.7490196, a: 0.078125}
     - _Color: {r: 0.23529412, g: 1.7098039, b: 2, a: 1}
     - _Emission: {r: 0.24083766, g: 1.7172773, b: 1.9999998, a: 1}
-    - _EmissionColor: {r: 0.24083766, g: 1.7172773, b: 1.9999998, a: 1}
+    - _EmissionColor: {r: 0.23802887, g: 1.7179475, b: 1.9766746, a: 1}
     - _SpecColor: {r: 0.19999993, g: 0.19999993, b: 0.19999993, a: 1}
