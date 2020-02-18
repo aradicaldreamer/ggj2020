@@ -115,7 +115,7 @@ Material:
     - _WaterFalloff: -3.6
     - _WaterSmoothness: 0.9
     - _WaterSpecular: 0.05
-    - _WaveHeight: 0.0002
+    - _WaveHeight: 0.00005
     - _WaveSpeed: 0.24
     - _WavreHeight: 0.009
     - _ZWrite: 1
