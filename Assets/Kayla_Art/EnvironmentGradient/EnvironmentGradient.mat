@@ -73,7 +73,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _GradientHeight: 5
+    - _GradientHeight: 4.1
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -85,7 +85,7 @@ Material:
     - _ZWrite: 1
     - __dirty: 0
     m_Colors:
-    - _Bot_XZ: {r: 0.5188679, g: 0.110137075, b: 0.110137075, a: 0}
+    - _Bot_XZ: {r: 0.7058823, g: 0.20242196, b: 0.20242196, a: 0}
     - _Bot_Y: {r: 0.38773617, g: 0.595588, b: 0.18831086, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EdgeColor: {r: 0.9411765, g: 0.9197947, b: 0.7474049, a: 0}
