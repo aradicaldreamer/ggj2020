@@ -93,11 +93,11 @@ Material:
     - _DetailNormalMapScale: 1
     - _Distortion: 0.2
     - _DstBlend: 0
-    - _FoamDepth: 0.94
+    - _FoamDepth: 1.01
     - _FoamDist1: 0.1
     - _FoamFalloff: -60
-    - _FoamSmoothness: 0.2
-    - _FoamSpecular: 0
+    - _FoamSmoothness: 0.9
+    - _FoamSpecular: 0.05
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
@@ -111,7 +111,7 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
-    - _WaterDepth: 0.99
+    - _WaterDepth: 1.22
     - _WaterFalloff: -3.6
     - _WaterSmoothness: 0.9
     - _WaterSpecular: 0.05
